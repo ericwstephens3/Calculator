@@ -28,7 +28,8 @@ SOURCES += \
         calculator.cpp
 
 HEADERS += \
-        calculator.h
+        calculator.h \
+    exprtk.hpp
 
 FORMS += \
         calculator.ui

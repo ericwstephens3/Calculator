@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::Calculator *ui;
+    char input[10];
 };
 
 #endif // CALCULATOR_H
