@@ -110,6 +110,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../Calculator/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -129,7 +130,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../Calculator/Calculator.pro ../Calculator/calculator.h ../Calculator/main.cpp \
+		../Calculator/Calculator.pro ../Calculator/calculator.h \
+		../Calculator/exprtk.hpp ../Calculator/main.cpp \
 		../Calculator/calculator.cpp
 QMAKE_TARGET  = Calculator
 DESTDIR       = 
@@ -197,6 +199,7 @@ Makefile: ../Calculator/Calculator.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -276,6 +279,7 @@ Makefile: ../Calculator/Calculator.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -314,7 +318,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Calculator/calculator.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Calculator/calculator.h ../Calculator/exprtk.hpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Calculator/main.cpp ../Calculator/calculator.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Calculator/calculator.ui $(DISTDIR)/
 
@@ -381,7 +385,8 @@ main.o: ../Calculator/main.cpp ../Calculator/calculator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Calculator/main.cpp
 
 calculator.o: ../Calculator/calculator.cpp ../Calculator/calculator.h \
-		ui_calculator.h
+		ui_calculator.h \
+		../Calculator/exprtk.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o calculator.o ../Calculator/calculator.cpp
 
 moc_calculator.o: moc_calculator.cpp 

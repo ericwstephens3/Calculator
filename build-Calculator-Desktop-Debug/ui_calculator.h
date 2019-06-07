@@ -26,7 +26,7 @@ class Ui_Calculator
 public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
-    QPushButton *plus;
+    QPushButton *add;
     QPushButton *button4;
     QPushButton *button7;
     QPushButton *clearAll;
@@ -43,7 +43,7 @@ public:
     QPushButton *divide;
     QPushButton *back;
     QPushButton *button3;
-    QPushButton *minus;
+    QPushButton *subtract;
     QPushButton *button0;
     QPushButton *decimal;
     QPushButton *changeSign;
@@ -68,16 +68,16 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        plus = new QPushButton(centralWidget);
-        plus->setObjectName(QStringLiteral("plus"));
-        sizePolicy.setHeightForWidth(plus->sizePolicy().hasHeightForWidth());
-        plus->setSizePolicy(sizePolicy);
+        add = new QPushButton(centralWidget);
+        add->setObjectName(QStringLiteral("add"));
+        sizePolicy.setHeightForWidth(add->sizePolicy().hasHeightForWidth());
+        add->setSizePolicy(sizePolicy);
         QFont font;
         font.setPointSize(11);
         font.setBold(true);
         font.setWeight(75);
-        plus->setFont(font);
-        plus->setStyleSheet(QLatin1String("QPushButton{\n"
+        add->setFont(font);
+        add->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: orange;\n"
 "	color: black;\n"
 "}\n"
@@ -87,7 +87,7 @@ public:
 "	color: white;\n"
 "}"));
 
-        gridLayout->addWidget(plus, 3, 3, 1, 1);
+        gridLayout->addWidget(add, 3, 3, 1, 1);
 
         button4 = new QPushButton(centralWidget);
         button4->setObjectName(QStringLiteral("button4"));
@@ -116,7 +116,7 @@ public:
 "	color: black;\n"
 "}\n"
 "\n"
-"QPushButton#pushButton:pressed{\n"
+"QPushButton:pressed{\n"
 "	background-color: black;\n"
 "	color: white;\n"
 "}"));
@@ -361,12 +361,12 @@ public:
 
         gridLayout->addWidget(button3, 4, 2, 1, 1);
 
-        minus = new QPushButton(centralWidget);
-        minus->setObjectName(QStringLiteral("minus"));
-        sizePolicy.setHeightForWidth(minus->sizePolicy().hasHeightForWidth());
-        minus->setSizePolicy(sizePolicy);
-        minus->setFont(font);
-        minus->setStyleSheet(QLatin1String("QPushButton{\n"
+        subtract = new QPushButton(centralWidget);
+        subtract->setObjectName(QStringLiteral("subtract"));
+        sizePolicy.setHeightForWidth(subtract->sizePolicy().hasHeightForWidth());
+        subtract->setSizePolicy(sizePolicy);
+        subtract->setFont(font);
+        subtract->setStyleSheet(QLatin1String("QPushButton{\n"
 "	background-color: orange;\n"
 "	color: black;\n"
 "}\n"
@@ -376,7 +376,7 @@ public:
 "	color: white;\n"
 "}"));
 
-        gridLayout->addWidget(minus, 3, 4, 1, 1);
+        gridLayout->addWidget(subtract, 3, 4, 1, 1);
 
         button0 = new QPushButton(centralWidget);
         button0->setObjectName(QStringLiteral("button0"));
@@ -481,10 +481,10 @@ public:
     void retranslateUi(QMainWindow *Calculator)
     {
         Calculator->setWindowTitle(QApplication::translate("Calculator", "Calculator", nullptr));
-        plus->setText(QApplication::translate("Calculator", "+", nullptr));
+        add->setText(QApplication::translate("Calculator", "+", nullptr));
         button4->setText(QApplication::translate("Calculator", "4", nullptr));
         button7->setText(QApplication::translate("Calculator", "7", nullptr));
-        clearAll->setText(QApplication::translate("Calculator", "CE", nullptr));
+        clearAll->setText(QApplication::translate("Calculator", "AC", nullptr));
         rightParen->setText(QApplication::translate("Calculator", ")", nullptr));
         button2->setText(QApplication::translate("Calculator", "2", nullptr));
         clear->setText(QApplication::translate("Calculator", "C", nullptr));
@@ -498,7 +498,7 @@ public:
         divide->setText(QApplication::translate("Calculator", "/", nullptr));
         back->setText(QApplication::translate("Calculator", "Back", nullptr));
         button3->setText(QApplication::translate("Calculator", "3", nullptr));
-        minus->setText(QApplication::translate("Calculator", "-", nullptr));
+        subtract->setText(QApplication::translate("Calculator", "-", nullptr));
         button0->setText(QApplication::translate("Calculator", "0", nullptr));
         decimal->setText(QApplication::translate("Calculator", ".", nullptr));
         changeSign->setText(QApplication::translate("Calculator", "+/-", nullptr));

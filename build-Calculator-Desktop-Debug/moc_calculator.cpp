@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Calculator_t {
-    QByteArrayData data[1];
-    char stringdata0[11];
+    QByteArrayData data[10];
+    char stringdata0[151];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -31,10 +31,22 @@ struct qt_meta_stringdata_Calculator_t {
     )
 static const qt_meta_stringdata_Calculator_t qt_meta_stringdata_Calculator = {
     {
-QT_MOC_LITERAL(0, 0, 10) // "Calculator"
+QT_MOC_LITERAL(0, 0, 10), // "Calculator"
+QT_MOC_LITERAL(1, 11, 10), // "numPressed"
+QT_MOC_LITERAL(2, 22, 0), // ""
+QT_MOC_LITERAL(3, 23, 17), // "mathButtonPressed"
+QT_MOC_LITERAL(4, 41, 12), // "equalPressed"
+QT_MOC_LITERAL(5, 54, 16), // "changeNumberSign"
+QT_MOC_LITERAL(6, 71, 17), // "backButtonPressed"
+QT_MOC_LITERAL(7, 89, 18), // "clearButtonPressed"
+QT_MOC_LITERAL(8, 108, 21), // "clearAllButtonPressed"
+QT_MOC_LITERAL(9, 130, 20) // "decimalButtonPressed"
 
     },
-    "Calculator"
+    "Calculator\0numPressed\0\0mathButtonPressed\0"
+    "equalPressed\0changeNumberSign\0"
+    "backButtonPressed\0clearButtonPressed\0"
+    "clearAllButtonPressed\0decimalButtonPressed"
 };
 #undef QT_MOC_LITERAL
 
@@ -44,21 +56,53 @@ static const uint qt_meta_data_Calculator[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: name, argc, parameters, tag, flags
+       1,    0,   54,    2, 0x08 /* Private */,
+       3,    0,   55,    2, 0x08 /* Private */,
+       4,    0,   56,    2, 0x08 /* Private */,
+       5,    0,   57,    2, 0x08 /* Private */,
+       6,    0,   58,    2, 0x08 /* Private */,
+       7,    0,   59,    2, 0x08 /* Private */,
+       8,    0,   60,    2, 0x08 /* Private */,
+       9,    0,   61,    2, 0x08 /* Private */,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+
        0        // eod
 };
 
 void Calculator::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Calculator *_t = static_cast<Calculator *>(_o);
+        Q_UNUSED(_t)
+        switch (_id) {
+        case 0: _t->numPressed(); break;
+        case 1: _t->mathButtonPressed(); break;
+        case 2: _t->equalPressed(); break;
+        case 3: _t->changeNumberSign(); break;
+        case 4: _t->backButtonPressed(); break;
+        case 5: _t->clearButtonPressed(); break;
+        case 6: _t->clearAllButtonPressed(); break;
+        case 7: _t->decimalButtonPressed(); break;
+        default: ;
+        }
+    }
     Q_UNUSED(_a);
 }
 
@@ -84,6 +128,17 @@ void *Calculator::qt_metacast(const char *_clname)
 int Calculator::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 8)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 8;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 8)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 8;
+    }
     return _id;
 }
 QT_WARNING_POP
