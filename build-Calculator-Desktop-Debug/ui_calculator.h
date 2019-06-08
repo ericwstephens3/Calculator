@@ -503,7 +503,7 @@ public:
         decimal->setText(QApplication::translate("Calculator", ".", nullptr));
         changeSign->setText(QApplication::translate("Calculator", "+/-", nullptr));
         equals->setText(QApplication::translate("Calculator", "=", nullptr));
-        display->setText(QApplication::translate("Calculator", "0.0", nullptr));
+        display->setText(QApplication::translate("Calculator", "0", nullptr));
     } // retranslateUi
 
 };

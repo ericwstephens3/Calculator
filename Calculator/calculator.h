@@ -51,6 +51,7 @@ private:
     symbol_table_t symbolTable;
     expression_t expression;
     parser_t parser;
+    QString equ = "";
 
 private slots:
     void numPressed();
