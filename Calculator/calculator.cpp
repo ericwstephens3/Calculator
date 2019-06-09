@@ -107,15 +107,7 @@ void Calculator::changeNumberSign(){
     QRegExp reg("[-+]?[0-9.]*");
 
     // If it is a number change the sign
-    if(reg.exactMatch(displayVal)){
-
-        // Put solution in display
-         double dblDisplayVal = displayVal.toDouble();
-         double dblDisplayValSign = -1 * dblDisplayVal;
-
-         ui->display->setText(QString::number(dblDisplayValSign));
-    }
-    else if (displayVal == "" || displayVal == "0"){
+    if (displayVal == "" || displayVal == "0"){
         ui->display->setText("-");
         isNegative = true;
     }
@@ -123,14 +115,36 @@ void Calculator::changeNumberSign(){
         isNegative = false;
         ui->display->setText("");
     }
+    else if(reg.exactMatch(displayVal)){
+
+        // Put solution in display
+         double dblDisplayVal = displayVal.toDouble();
+         double dblDisplayValSign = -1 * dblDisplayVal;
+
+         ui->display->setText(QString::number(dblDisplayValSign));
+    }
 }
 
 void Calculator::backButtonPressed(){
+    QString displayValue = ui->display->text();
+    if (displayValue != "" || displayValue != "0"){
+        displayValue.chop(1);
+    }
+    if (isNegative && displayValue == ""){
+        isNegative = false;
+    }
 
+    ui->display->setText(displayValue);
+    toAppend = displayValue;
 }
 
 void Calculator::decimalButtonPressed(){
-
+    QString displayValue = ui->display->text();
+    if (!displayValue.contains(".")){
+        displayValue = displayValue + ".";
+        ui->display->setText(displayValue);
+       toAppend = toAppend + ".";
+    }
 }
 
 void Calculator::clearButtonPressed(){
