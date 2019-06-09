@@ -355,7 +355,8 @@ moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: moc_calculator.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_calculator.cpp
-moc_calculator.cpp: ../Calculator/calculator.h \
+moc_calculator.cpp: ../Calculator/exprtk.hpp \
+		../Calculator/calculator.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-clang -I/home/estephens/Documents/C++Applications/Calculator/Calculator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/include/clang/7.0.0/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Calculator/calculator.h -o moc_calculator.cpp
@@ -381,12 +382,13 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../Calculator/main.cpp ../Calculator/calculator.h
+main.o: ../Calculator/main.cpp ../Calculator/calculator.h \
+		../Calculator/exprtk.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Calculator/main.cpp
 
 calculator.o: ../Calculator/calculator.cpp ../Calculator/calculator.h \
-		ui_calculator.h \
-		../Calculator/exprtk.hpp
+		../Calculator/exprtk.hpp \
+		ui_calculator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o calculator.o ../Calculator/calculator.cpp
 
 moc_calculator.o: moc_calculator.cpp 
