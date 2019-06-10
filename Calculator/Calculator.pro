@@ -33,3 +33,5 @@ HEADERS += \
 
 FORMS += \
         calculator.ui
+
+STATECHARTS +=

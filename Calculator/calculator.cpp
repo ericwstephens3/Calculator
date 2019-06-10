@@ -93,8 +93,12 @@ void Calculator::equalPressed(){
     std::string stdEqu= equ.toStdString();
     parser.compile(stdEqu, expression);
     double result = expression.value();
-    qDebug()<<QString::number(result);
-    ui->display->setText(QString::number(result));
+    QString resultString = QString::number(result);
+    qDebug()<<resultString;
+    if (resultString == "nan")
+        ui->display->setText("Error");
+    else
+        ui->display->setText(resultString);
 
 }
 
@@ -156,3 +160,4 @@ void Calculator::clearAllButtonPressed(){
     toAppend = "";
     ui->display->setText("0");
 }
+

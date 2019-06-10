@@ -388,7 +388,7 @@ main.o: ../Calculator/main.cpp ../Calculator/calculator.h \
 
 calculator.o: ../Calculator/calculator.cpp ../Calculator/calculator.h \
 		../Calculator/exprtk.hpp \
-		ui_calculator.h
+		../Calculator/ui_calculator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o calculator.o ../Calculator/calculator.cpp
 
 moc_calculator.o: moc_calculator.cpp 
