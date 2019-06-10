@@ -15,7 +15,6 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -54,7 +53,6 @@ public:
     QPushButton *button2;
     QLineEdit *display;
     QMenuBar *menuBar;
-    QMenu *menuFile;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *Calculator)
@@ -480,16 +478,10 @@ public:
         menuBar = new QMenuBar(Calculator);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 482, 23));
-        menuFile = new QMenu(menuBar);
-        menuFile->setObjectName(QStringLiteral("menuFile"));
         Calculator->setMenuBar(menuBar);
         statusBar = new QStatusBar(Calculator);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         Calculator->setStatusBar(statusBar);
-
-        menuBar->addAction(menuFile->menuAction());
-        menuFile->addAction(actionStandard);
-        menuFile->addAction(actionScientific);
 
         retranslateUi(Calculator);
 
@@ -524,7 +516,6 @@ public:
         changeSign->setText(QApplication::translate("Calculator", "+/-", nullptr));
         button2->setText(QApplication::translate("Calculator", "2", nullptr));
         display->setText(QApplication::translate("Calculator", "0", nullptr));
-        menuFile->setTitle(QApplication::translate("Calculator", "Fi&le", nullptr));
     } // retranslateUi
 
 };
