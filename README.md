@@ -10,3 +10,5 @@ cd path/to/executable
 chmod +x ./Calculator
 ./Calculator
 ```
+#External Libraries
+This calculator uses the library exprtk to do all calculations. It is found here: https://github.com/ArashPartow/exprtk
